@@ -1,0 +1,30 @@
+mode: distributed
+replicas: 4
+
+existingSecret: minio-creds
+
+resources:
+  requests:
+    memory: 512Mi
+    cpu: 250m
+
+persistence:
+  enabled: true
+  size: 10Gi
+
+service:
+  type: LoadBalancer
+  
+ingress:
+  enabled: false  # Set to true if you want to expose via Ingress
+  annotations: {}
+  hosts:
+    - minio.assessment.com
+
+tls:
+  enabled: true
+  certSecret: minio-tls-secret
+
+consoleService:
+  type: LoadBalancer
+
