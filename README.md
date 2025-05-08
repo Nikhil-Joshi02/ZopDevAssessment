@@ -94,6 +94,12 @@ persistence:
 service:
   type: LoadBalancer
 
+ingress:
+  enabled: false  # Set to true if you want to expose via Ingress
+  annotations: {}
+  hosts:
+    - minio.assessment.com
+
 tls:
   enabled: true
   certSecret: minio-tls-secret
